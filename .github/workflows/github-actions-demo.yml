@@ -1,16 +1,32 @@
-name: Python package
+name: Python Cl
 
-on: [push]
+on: [push, pull_request]
 
 jobs:
-  build:
+  wersja_pythona:
+  runs-on: ubuntu-latest
   
-    strategy:
-      matrix:
-        python-version: ["3.7", "3.8", "3.9", "3.10", "3.11"]
-
+  steps:
+    -name: Odpalanie python
+    uses: actions/setup-python@v2
+    with: python-version: 3.x
+    
+    -name: Wyświetl wersje python
+    run: python --version
+  
+  pylint-test:
+    runs-on: ubuntu-latest
+    
     steps:
-        run: |
-          python --version
-
-          pytest
+      -name: Sprawdz repozytorium
+      uses: actions/checkout@v2
+      
+      -name: Odpalanie python
+      uses: actions/setup-python@v2
+      with: python-version: 3.x
+      
+      -name: zleznosci
+      run: pip install -r requirements.txt
+      
+      -name: Run Pylint
+      run: pylint app.py
