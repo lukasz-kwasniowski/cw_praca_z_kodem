@@ -2,16 +2,16 @@ on: [push, pull_request]
 
 jobs:
   wersja_pythona:
-  runs-on: ubuntu-latest
+    runs-on: ubuntu-latest
   
-  steps:
-    -name: Odpalanie python
-    uses: actions/setup-python@v2
-    with: 
-      python-version: 3.x
+    steps:
+      -name: Odpalanie python
+      uses: actions/setup-python@v2
+      with: 
+        python-version: 3.x
     
-    -name: Wyswietl wersje python
-    run: python --version
+      -name: Wyswietl wersje python
+      run: python --version
   
   pylint-test:
     runs-on: ubuntu-latest
