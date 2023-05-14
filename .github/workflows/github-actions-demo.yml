@@ -1,34 +1,34 @@
-name: Python Cl
+name: Python CI
 
-on: [push, pull_request]
+on: [push]
 
 jobs:
-  wersja_pythona:
+  display-python-version:
     runs-on: ubuntu-latest
-  
+
     steps:
-      -name: Odpalanie python
-      uses: actions/setup-python@v2
-      with: 
-        python-version: 3.x
-    
-    -name: wyswietl
-    run: python --version
-  
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.x
+
+      - name: Display Python version
+        run: python --version
+
   pylint-test:
     runs-on: ubuntu-latest
-    
+
     steps:
-      -name: Sprawdz repozytorium
-      uses: actions/checkout@v2
-      
-      -name: Odpalanie
-      uses: actions/setup-python@v2
-      with:
-        python-version: 3.x
-      
-      -name: zleznosci
-      run: pip install -r requirements.txt
-      
-      -name: Run Pylint
-      run: pylint app.py
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.x
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run Pylint
+        run: pylint your_app.py
