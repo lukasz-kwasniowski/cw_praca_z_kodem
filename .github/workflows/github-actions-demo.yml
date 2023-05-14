@@ -12,7 +12,7 @@ jobs:
     with: 
       python-version: 3.x
     
-    -name: Wyświetl wersje python
+    -name: Wyswietl wersje python
     run: python --version
   
   pylint-test:
