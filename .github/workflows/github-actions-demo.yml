@@ -1,3 +1,5 @@
+name: Python Cl
+
 on: [push, pull_request]
 
 jobs:
@@ -10,8 +12,8 @@ jobs:
       with: 
         python-version: 3.x
     
-      -name: Wyswietl wersje python
-      run: python --version
+    -name: wyswietl
+    run: python --version
   
   pylint-test:
     runs-on: ubuntu-latest
@@ -20,7 +22,7 @@ jobs:
       -name: Sprawdz repozytorium
       uses: actions/checkout@v2
       
-      -name: Odpalanie python
+      -name: Odpalanie
       uses: actions/setup-python@v2
       with:
         python-version: 3.x
