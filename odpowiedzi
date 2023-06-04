@@ -1,0 +1,17 @@
+curl http://127.0.0.1:5000/
+127.0.0.1 - - [04/Jun/2023 15:22:40] "GET / HTTP/1.1" 200 -
+
+----
+curl http://127.0.0.1:5000/hello
+127.0.0.1 - - [04/Jun/2023 15:24:04] "GET /hello/ HTTP/1.1" 200 -
+127.0.0.1 - - [04/Jun/2023 15:24:10] "GET /hello HTTP/1.1" 308 -
+
+----
+http://127.0.0.1:5000/hello/lukasz
+127.0.0.1 - - [04/Jun/2023 15:25:15] "GET /hello/lukasz HTTP/1.1" 200 -
+
+---
+
+curl http://127.0.0.1:5000/hello - ze zmienionym parametrem
+127.0.0.1 - - [04/Jun/2023 15:28:01] "GET /hello/ HTTP/1.1" 200 -
+127.0.0.1 - - [04/Jun/2023 15:28:21] "GET /hello HTTP/1.1" 308 -
